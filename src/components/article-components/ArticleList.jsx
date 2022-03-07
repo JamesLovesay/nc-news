@@ -5,7 +5,8 @@ import ArticleCard from "./ArticleCard.jsx";
 
 export default function ArticleList() {
     const [articles, setArticles] = useState([]);
-    const[isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         setIsLoading(true);
@@ -13,8 +14,14 @@ export default function ArticleList() {
             setArticles(articles)
             setIsLoading(false)
         })
+        .catch((err) => {
+            setError(err.message);
+        })
     }, [])
 
+    if (error) {
+        return <p>{ error }</p>
+    }
     if(isLoading) return <p> Loading....</p>
     return (
         <section className="homepage_article_list">
