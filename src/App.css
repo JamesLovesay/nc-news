@@ -2,6 +2,43 @@
   text-align: center;
 }
 
+.App-header {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(229, 231, 240);
+  color: rgb(19, 18, 18);
+}
+
+.header_topic_navlink {
+  align-items: center;
+  padding: 10px
+}
+
+.homepage_article_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.articlelist_articlecard {
+  margin: 10px;
+  border-style: solid; 
+  border-radius: 10%;
+}
+
+.header_title {
+  text-align: center;
+}
+
+.articlecard_topic {
+  margin-top: 0;
+}
+
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
