@@ -91,6 +91,10 @@
   line-height: 3cm;
 }
 
+.single_article_link  {
+  color: black;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

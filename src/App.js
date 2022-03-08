@@ -6,6 +6,7 @@ import Nav from "./components/header-components/Nav.jsx";
 import ArticleList from './components/article-components/ArticleList';
 import TopicList from './components/topic-components/TopicList';
 import Error from "./components/error-components/Error.jsx"
+import SingleArticle from './components/article-components/SingleArticle';
 
 function App() {
     const [articles, setArticles] = useState([]);
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ArticleList articles={articles} setArticles={setArticles}/>}/>
             <Route path="/topics/:topic/articles" element={<TopicList articles={articles} setArticles={setArticles} topics={topics}/>}/>
+            <Route path="/topics/:topic/articles/:article_id" element={<SingleArticle articles={articles} setArticles={setArticles}/>}/>
             <Route path="*" element={<Error />}/>
           </Routes>
     </div>

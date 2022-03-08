@@ -4,8 +4,7 @@ import * as api from "../../utils/api.js";
 import ArticleCard from "./ArticleCard.jsx";
 import Error from '../error-components/Error.jsx'
 
-export default function ArticleList() {
-    const [articles, setArticles] = useState([]);
+export default function ArticleList({ articles, setArticles }) {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -21,7 +20,6 @@ export default function ArticleList() {
     }, [])
 
     if (error) {
-        console.log(error);
         return <Error error={error} />
     }
     if(isLoading) return <p> Loading....</p>
@@ -29,6 +27,7 @@ export default function ArticleList() {
         <section className="homepage_article_list">
             {articles.map(({ article_id, title, topic, author, body, votes}) => {
                 return (
+
                     <ArticleCard 
                     key={article_id}
                     article_id={article_id}
