@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import * as api from "../../utils/api.js";
 import Error from "../error-components/Error.jsx";
 
-export default function TopicList({ articles, setArticles }) {
+export default function TopicList({ topics, articles, setArticles }) {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const filteredArticles = [];
@@ -20,6 +20,15 @@ export default function TopicList({ articles, setArticles }) {
             setError(err.message);
         })
     }, [])
+
+    
+    const checkTopic = topics.filter((singleTopic) => {
+        return singleTopic.slug === topic
+    })
+
+    if(checkTopic.length === 0) {
+        return <Error />
+    }
 
     articles.forEach((article) => {
         if(article.topic === topic) filteredArticles.push(article)

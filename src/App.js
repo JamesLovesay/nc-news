@@ -18,7 +18,7 @@ function App() {
           <Nav topics={topics} setTopics={setTopics}/>
           <Routes>
             <Route path="/" element={<ArticleList articles={articles} setArticles={setArticles}/>}/>
-            <Route path="/topics/:topic/articles" element={<TopicList articles={articles} setArticles={setArticles}/>}/>
+            <Route path="/topics/:topic/articles" element={<TopicList articles={articles} setArticles={setArticles} topics={topics}/>}/>
             <Route path="*" element={<Error />}/>
           </Routes>
     </div>
