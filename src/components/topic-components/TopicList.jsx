@@ -12,14 +12,13 @@ export default function TopicList({ articles, setArticles }) {
     useEffect(() => {
         setIsLoading(true);
         api.getArticles(topic).then((articles) => {
-            console.log(articles)
             setArticles(articles)
             setIsLoading(false)
         })
         .catch((err) => {
             setError(err.message);
         })
-    }, [topic])
+    }, [])
 
     if (error) {
         return <Error error={error}/>

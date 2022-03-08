@@ -30,19 +30,16 @@ export default function SingleArticle({ articles, setArticles }) {
     return (
         <>
             <section className="single_article_display">
-            <ArticleCard 
-                key={article_id}
-                article_id={article_id}
-                title={article.title}
-                topic={topic}
-                author={article.author}
-                body={article.body}
-                votes={article.votes}
-                comment_count={article.comment_count}/>
+            <h3 className="articlecard_title">{article.title}</h3>
+
+            <h4 className="articlecard_author">{article.author}</h4>
+            <h5 className="articlecard_topic">{topic}</h5>
             <p className="single_article_body">{article.body}</p>
-            <p></p>
+            <p className="articlecard_votes">Votes - {article.votes}</p>
+            <p className="single_articlel_paragraph">Comments {article.comment_count}</p>
+            <button className="comment_view_button">Click to view comments</button>
             </section>
-            <Link to={`topics/${topic}`} className="single_article_return_to_topics">Return to {topic}</Link>
+            <Link to={`/topics/${topic}/articles`} className="single_article_return_to_topics">Return to {topic} articles</Link>
         </>
 
         
