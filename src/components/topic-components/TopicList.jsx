@@ -1,33 +1,35 @@
 import { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
+import ArticleCard from "../article-components/ArticleCard.jsx";
+import { useParams } from "react-router-dom";
 import * as api from "../../utils/api.js";
-import ArticleCard from "./ArticleCard.jsx";
-import Error from '../error-components/Error.jsx'
+import Error from "../error-components/Error.jsx";
+import {Link} from "react-router-dom";
 
-export default function ArticleList({ articles, setArticles }) {
-    const [isLoading, setIsLoading] = useState(true);
+export default function TopicList({ articles, setArticles }) {
     const [error, setError] = useState(null);
-
+    const [isLoading, setIsLoading] = useState(true);
+    const { topic } = useParams();
     useEffect(() => {
         setIsLoading(true);
-        api.getArticles().then((articles) => {
+        api.getArticles(topic).then((articles) => {
+            console.log(articles)
             setArticles(articles)
             setIsLoading(false)
         })
         .catch((err) => {
             setError(err.message);
         })
-    }, [])
+    }, [topic])
 
     if (error) {
-        return <Error error={error} />
+        return <Error error={error}/>
     }
     if(isLoading) return <p> Loading....</p>
+
     return (
-        <section className="homepage_article_list">
+        <section className="topic_article_list">
             {articles.map(({ article_id, title, topic, author, body, votes}) => {
                 return (
-
                     <ArticleCard 
                     key={article_id}
                     article_id={article_id}

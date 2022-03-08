@@ -5,7 +5,7 @@ export default function Header() {
     <header className="App-header">
         <h1 className="header_title">NC News</h1>
         <Link to="/login">
-            <p className="login link">Login</p>
+            <p className="login_link">Login</p>
         </Link>
     </header>
     )

@@ -1,43 +1,99 @@
 .App {
   text-align: center;
+   background-color: gainsboro;
+}
+
+.App-header h1 {
+  font-size: 1cm;
+  text-align: center;
+  font-family: fantasy;
 }
 
 .App-header {
   display: flex;
-  padding: 20px;
+  padding: 10px 10px 0px 10px;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(229, 231, 240);
+  background-color: #EC5800;
   color: rgb(19, 18, 18);
+}
+
+.navbar {
+  background-color: #EC5800;
+  border-top: solid;
+}
+
+.login-link {
+  background-color: #EC5800;
+  color: black;
 }
 
 .header_topic_navlink {
   align-items: center;
-  padding: 10px
+  padding: 10px;
+  color: black;
 }
 
 .homepage_article_list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   max-width: 1200px;
+  background-color: gainsboro;
+  padding-top: 50px;
 }
 
 .articlelist_articlecard {
   margin: 10px;
   border-style: solid; 
   border-radius: 10%;
+  padding: 0px;
 }
 
 .header_title {
   text-align: center;
 }
 
-.articlecard_topic {
-  margin-top: 0;
+.topic_article_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1200px;
+  margin-bottom: 0;
+  padding-top: 50px;
 }
 
+.header_button_label {
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.header_topic_navlink {
+  background-color: var(--indigo-dye);
+  width: 100%;
+  margin: 0px;
+  padding: 20px;
+  border: none;
+  border-radius: 0px;
+  color: black;
+  font-size: x-large;
+}
+
+.header_topic_navlink:hover {
+  background-color: var(--button-hover);
+}
+
+.error_message {
+  text-transform: uppercase;
+  color:darkred;
+  line-height: 3cm;
+}
+
+.single_article_link  {
+  color: black;
+}
 
 /* .App-logo {
   height: 40vmin;
