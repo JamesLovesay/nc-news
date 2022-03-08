@@ -5,6 +5,7 @@ import Header from "./components/header-components/Header.jsx";
 import Nav from "./components/header-components/Nav.jsx";
 import ArticleList from './components/article-components/ArticleList';
 import TopicList from './components/topic-components/TopicList';
+import Error from "./components/error-components/Error.jsx"
 
 function App() {
     const [articles, setArticles] = useState([]);
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ArticleList articles={articles} setArticles={setArticles}/>}/>
             <Route path="/topics/:topic/articles" element={<TopicList articles={articles} setArticles={setArticles}/>}/>
+            <Route path="*" element={<Error />}/>
           </Routes>
     </div>
     </BrowserRouter>

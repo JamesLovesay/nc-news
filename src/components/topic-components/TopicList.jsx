@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ArticleCard from "../article-components/ArticleCard.jsx";
 import { useParams } from "react-router-dom";
 import * as api from "../../utils/api.js";
+import Error from "../error-components/Error.jsx";
 
 export default function TopicList({ articles, setArticles }) {
     const [error, setError] = useState(null);
@@ -25,7 +26,7 @@ export default function TopicList({ articles, setArticles }) {
     })
 
     if (error) {
-        return <p>{ error }</p>
+        return <Error error={error}/>
     }
     if(isLoading) return <p> Loading....</p>
 

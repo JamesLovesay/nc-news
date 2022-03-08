@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+   background-color: gainsboro;
 }
 
 .App-header h1 {
@@ -13,22 +14,24 @@
   padding: 10px 10px 0px 10px;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(229, 231, 240);
+  background-color: #EC5800;
   color: rgb(19, 18, 18);
 }
 
 .navbar {
-  background-color: rgb(229, 231, 240);
+  background-color: #EC5800;
   border-top: solid;
 }
 
 .login-link {
-  background-color: rgb(229, 231, 240);
+  background-color: #EC5800;
+  color: black;
 }
 
 .header_topic_navlink {
   align-items: center;
-  padding: 10px
+  padding: 10px;
+  color: black;
 }
 
 .homepage_article_list {
@@ -36,8 +39,8 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   width: 100%;
   margin: 0 auto;
-  max-width: 100%;
-  background-color: lightblue;
+  max-width: 1200px;
+  background-color: gainsboro;
   padding-top: 50px;
 }
 
@@ -58,6 +61,8 @@
   width: 80%;
   margin: 0 auto;
   max-width: 1200px;
+  margin-bottom: 0;
+  padding-top: 50px;
 }
 
 .header_button_label {
@@ -72,11 +77,18 @@
   padding: 20px;
   border: none;
   border-radius: 0px;
-  color: rgb(53, 40, 109);
+  color: black;
+  font-size: x-large;
 }
 
 .header_topic_navlink:hover {
   background-color: var(--button-hover);
+}
+
+.error_message {
+  text-transform: uppercase;
+  color:darkred;
+  line-height: 3cm;
 }
 
 /* .App-logo {

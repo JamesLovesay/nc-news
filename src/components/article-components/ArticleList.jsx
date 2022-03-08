@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 import * as api from "../../utils/api.js";
 import ArticleCard from "./ArticleCard.jsx";
+import Error from '../error-components/Error.jsx'
 
 export default function ArticleList() {
     const [articles, setArticles] = useState([]);
@@ -20,7 +21,8 @@ export default function ArticleList() {
     }, [])
 
     if (error) {
-        return <p>{ error }</p>
+        console.log(error);
+        return <Error error={error} />
     }
     if(isLoading) return <p> Loading....</p>
     return (
