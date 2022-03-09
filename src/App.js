@@ -1,5 +1,5 @@
 import './App.css';
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Header from "./components/header-components/Header.jsx";
 import Nav from "./components/header-components/Nav.jsx";

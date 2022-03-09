@@ -128,6 +128,29 @@
   padding-right: 20px;
 }
 
+.article_comments_container {
+  border-style: double;
+  margin: 5px 10% 5px 10%
+}
+
+.comment_individual_article {
+  border-style: dotted;
+}
+
+.comment_individual_article h4 {
+  display: inline;
+  padding-right: 10px;
+  color: #EC5800;
+}
+
+.comment_individual_article h5 {
+  display: inline;
+}
+
+.comment_individual_article div {
+  padding-bottom: 5px;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

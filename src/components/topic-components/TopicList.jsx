@@ -3,7 +3,6 @@ import ArticleCard from "../article-components/ArticleCard.jsx";
 import { useParams } from "react-router-dom";
 import * as api from "../../utils/api.js";
 import Error from "../error-components/Error.jsx";
-import {Link} from "react-router-dom";
 
 export default function TopicList({ articles, setArticles }) {
     const [error, setError] = useState(null);

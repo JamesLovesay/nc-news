@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import * as api from "../../utils/api.js";
 import Error from '../error-components/Error.jsx'
 import {Link} from "react-router-dom";
-import ArticleCard from "./ArticleCard.jsx";
 import { useParams } from "react-router-dom";
+import CommentsList from "../comments-components/CommentsList.jsx";
+import CollapseWrapper from "../comments-components/CollapseWrapper.jsx";
 
 export default function SingleArticle({ articles, setArticles }) {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const { topic, article_id } = useParams();
-    const [article, setArticle] = useState({})
+    const [article, setArticle] = useState({});
+    const [isCommentsVisible, setCommentsVisible] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
@@ -37,9 +39,8 @@ export default function SingleArticle({ articles, setArticles }) {
             <p className="single_article_body">{article.body}</p>
             <p className="articlecard_votes">Votes - {article.votes}</p>
             <p className="single_articlel_paragraph">Comments {article.comment_count}</p>
-            <button className="comment_view_button">Click to view comments</button>
             </section>
-            <CommentsList article_id={article_id}/>
+            <CollapseWrapper><CommentsList article_id={article_id}/></CollapseWrapper>
             <Link to={`/topics/${topic}/articles`} className="single_article_return_to_topics">Return to {topic} articles</Link>
         </>
 
