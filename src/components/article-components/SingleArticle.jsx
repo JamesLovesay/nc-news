@@ -36,7 +36,7 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
         .catch((err) => {
             setError(err.message);
         })
-    }, [votes, article_id])
+    }, [article_id])
 
     if (error) {
         return <Error error={error} />
@@ -51,9 +51,9 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
             <h4 className="articlecard_author">{article.author}</h4>
             <h5 className="articlecard_topic">{topic}</h5>
             <p className="single_article_body">{article.body}</p>
-            <p className="articlecard_votes">Votes - {article.votes}</p>
-            <button onClick={() => handleClick(1)} className="article_vote_button" disable={votes === 1 || loggedInUser === article.author || loggedInUser === ""}>Vote +</button>
-            <button onClick={() => handleClick(-1)} className="article_vote_button" disable={votes === 1 || loggedInUser === article.author || loggedInUser === ""}>Vote -</button>
+            <p className="articlecard_votes">Votes - {article.votes + votes}</p>
+            <button onClick={() => handleClick(1)} className="article_vote_button" disabled={votes === 1 || loggedInUser === article.author || loggedInUser === ""}>Vote +</button>
+            <button onClick={() => handleClick(-1)} className="article_vote_button" disabled={votes === -1 || loggedInUser === article.author || loggedInUser === ""}>Vote -</button>
             <p className="single_article_paragraph">Comments {article.comment_count}</p>
             <button className="comment_view_button">Click to view comments</button>
             </section>

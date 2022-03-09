@@ -1,11 +1,14 @@
 import * as api from "../../utils/api.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Error from "../error-components/Error.jsx";
+import { UserContext } from "./UserContext.jsx";
 
-export default function UserLogin({ isLoggedIn, setIsLoggedIn, loggedInUser, setLoggedInUser}) {
+
+export default function UserLogin({ isLoggedIn, setIsLoggedIn, setLoggedInUser}) {
     const [users, setUsers] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const { loggedInUser } = useContext(UserContext);
 
     useEffect(() => {
         setIsLoading(true);
@@ -19,7 +22,6 @@ export default function UserLogin({ isLoggedIn, setIsLoggedIn, loggedInUser, set
     }, [])
 
     const handleClick = (username) => {
-
         setIsLoggedIn(!isLoggedIn)
         setLoggedInUser(username)
 
@@ -36,7 +38,7 @@ export default function UserLogin({ isLoggedIn, setIsLoggedIn, loggedInUser, set
           <h3>Available Users</h3>
           {users.map(({ username }) => {
               return (
-                  <article className="login_user_article" key={username}><h4 key={username}className="username_login">{username}</h4><button value={username} onClick={() => handleClick(username)} className="user_login_button" disable={loggedInUser !== ""}><strong>Login</strong></button></article>
+                  <article className="login_user_article" key={username}><h4 key={username}className="username_login">{username}</h4><button value={username} onClick={() => handleClick(username)} className="user_login_button" disabled={loggedInUser !== ""}><strong>Login</strong></button></article>
               )
           })}
           </section>  
