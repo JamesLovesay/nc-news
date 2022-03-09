@@ -39,6 +39,7 @@ export default function SingleArticle({ articles, setArticles }) {
             <p className="single_articlel_paragraph">Comments {article.comment_count}</p>
             <button className="comment_view_button">Click to view comments</button>
             </section>
+            <CommentsList article_id={article_id}/>
             <Link to={`/topics/${topic}/articles`} className="single_article_return_to_topics">Return to {topic} articles</Link>
         </>
 
