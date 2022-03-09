@@ -21,3 +21,15 @@ export const getArticle = (article_id) => {
         return res.data.article;
     })
 }
+
+export const getUsers = () => {
+    return newsApi.get("/users").then((res) => {
+        return res.data.users;
+    })
+}
+
+export const changeVotes = (article_id, incVotes) => {
+    return newsApi.patch(`/articles/${article_id}`, {inc_votes: incVotes}).then((res) => {
+        return res.data.article;
+    })
+}
