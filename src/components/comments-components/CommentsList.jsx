@@ -4,8 +4,7 @@ import * as api from "../../utils/api.js";
 import Error from '../error-components/Error.jsx';
 import CommentCard from "./CommentCard.jsx";
 
-export default function CommentsList() {
-    const [comments, setComments] = useState([])
+export default function CommentsList({ comments, setComments }) {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const { article_id } = useParams()
