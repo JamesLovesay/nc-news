@@ -15,6 +15,8 @@ export default function CommentsList() {
         api.getComments(article_id).then((comments) => {
             setComments(comments);
             setIsLoading(false);
+        }).catch((err) => {
+            setError(err.message);
         })
     }, [])
 
