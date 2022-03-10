@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
 import * as api from "../../utils/api.js";
 import ArticleCard from "./ArticleCard.jsx";
 import Error from '../error-components/Error.jsx'
@@ -7,10 +6,17 @@ import Error from '../error-components/Error.jsx'
 export default function ArticleList({ articles, setArticles }) {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [sortCriteria, setSortCriteria] = useState({
+        topic: "", 
+        limit: 10, 
+        p: 1, 
+        sort_by: "created_at", 
+        order: "desc"
+    })
 
     useEffect(() => {
         setIsLoading(true);
-        api.getArticles().then((articles) => {
+        api.getArticles(form.topic, form.limit, form.p, form.sort_by, form.order).then((articles) => {
             setArticles(articles)
             setIsLoading(false)
         })
@@ -23,7 +29,10 @@ export default function ArticleList({ articles, setArticles }) {
         return <Error error={error} />
     }
     if(isLoading) return <p> Loading....</p>
+
     return (
+        <>
+        <SortForm sortCriteria={sortCriteria} setSortCriteria={setSortCriteria}/>
         <section className="homepage_article_list">
             {articles.map(({ article_id, title, topic, author, body, votes}) => {
                 return (
@@ -39,5 +48,7 @@ export default function ArticleList({ articles, setArticles }) {
                 )
             })}
         </section>
+        </>
+        
     )
 }
