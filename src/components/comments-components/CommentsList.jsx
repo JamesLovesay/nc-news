@@ -4,7 +4,7 @@ import * as api from "../../utils/api.js";
 import Error from '../error-components/Error.jsx';
 import CommentCard from "./CommentCard.jsx";
 
-export default function CommentsList({ comments, setComments }) {
+export default function CommentsList({ comments, setComments, commentToDelete, setCommentToDelete }) {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const { article_id } = useParams()
@@ -29,6 +29,10 @@ export default function CommentsList({ comments, setComments }) {
             {comments.map(({ comment_id, votes, created_at, author, body}) => {
                 return (
                     <CommentCard
+                    commentToDelete={commentToDelete}
+                    setCommentToDelete={setCommentToDelete}
+                    comments={comments}
+                    setComments={setComments}
                     key={comment_id}
                     comment_id={comment_id}
                     votes={votes}

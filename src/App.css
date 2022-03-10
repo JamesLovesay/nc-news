@@ -229,6 +229,20 @@
   border-color: red;
 }
 
+.delete_comment_enabled {
+  margin-bottom: 10px;
+  border-radius: 20%;
+  background-color: rgba(252, 29, 29, 0.795);
+  color: white;
+}
+
+.delete_comment_disabled {
+  margin-bottom: 10px;
+  border-radius: 20%;
+  background-color: rgba(131, 125, 125, 0.795);
+  color: white;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -45,3 +45,9 @@ export const addComment = (article_id, comment) => {
         return res.data.comment;
     })
 }
+
+export const deleteComment = (comment_id) => {
+    return newsApi.delete(`comments/${comment_id}/`).then((res) => {
+        return res.data.comment;
+    })
+}

@@ -18,6 +18,7 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
     const [votes, setVotes] = useState(0)
     const {loggedInUser} = useContext(UserContext)
     const [isPosting, setIsPosting] = useState(false);
+    const [commentToDelete, setCommentToDelete] = useState({});
 
     const handleClick = (incVotes) => {
         setVotes((currVotes) => {
@@ -39,7 +40,7 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
         .catch((err) => {
             setError(err.message);
         })
-    }, [article_id])
+    }, [article_id, commentToDelete])
 
     if (error) {
         return <Error error={error} />
@@ -59,7 +60,7 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
             <p className="single_article_paragraph">Comments {article.comment_count}</p>
             <AddNewComment isPosting={isPosting} setIsPosting={setIsPosting} comments={comments} setComments={setComments}/>
             </section>
-            <CollapseWrapper><CommentsList comments={comments} setComments={setComments} article_id={article_id}/></CollapseWrapper>
+            <CollapseWrapper><CommentsList commentToDelete={commentToDelete} setCommentToDelete={setCommentToDelete} comments={comments} setComments={setComments} article_id={article_id}/></CollapseWrapper>
             <Link to={`/topics/${topic}/articles`} className="single_article_return_to_topics">Return to {topic} articles</Link>
         </>
 
