@@ -7,18 +7,17 @@ import CommentsList from "../comments-components/CommentsList.jsx";
 import CollapseWrapper from "../comments-components/CollapseWrapper.jsx";
 import { useContext } from "react";
 import { UserContext } from "../user-components/UserContext.jsx";
+import AddNewComment from "../comments-components/AddNewComment.jsx";
 
 export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const { topic, article_id } = useParams();
-
+    const [comments, setComments] = useState([])
     const [article, setArticle] = useState({});
-    const [isCommentsVisible, setCommentsVisible] = useState(false);
     const [votes, setVotes] = useState(0)
     const {loggedInUser} = useContext(UserContext)
-
-    console.log(votes)
+    const [isPosting, setIsPosting] = useState(false);
 
     const handleClick = (incVotes) => {
         setVotes((currVotes) => {
@@ -40,7 +39,7 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
         .catch((err) => {
             setError(err.message);
         })
-    }, [article_id])
+    }, [article_id, isPosting])
 
     if (error) {
         return <Error error={error} />
@@ -51,7 +50,6 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
         <>
             <section className="single_article_display">
             <h3 className="articlecard_title">{article.title}</h3>
-
             <h4 className="articlecard_author">{article.author}</h4>
             <h5 className="articlecard_topic">{topic}</h5>
             <p className="single_article_body">{article.body}</p>
@@ -59,9 +57,9 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
             <button onClick={() => handleClick(1)} className="article_vote_button" disabled={votes === 1 || loggedInUser === article.author || loggedInUser === ""}>Vote +</button>
             <button onClick={() => handleClick(-1)} className="article_vote_button" disabled={votes === -1 || loggedInUser === article.author || loggedInUser === ""}>Vote -</button>
             <p className="single_article_paragraph">Comments {article.comment_count}</p>
-            <button className="comment_view_button">Click to view comments</button>
+            <AddNewComment isPosting={isPosting} setIsPosting={setIsPosting} comments={comments} setComments={setComments}/>
             </section>
-            <CollapseWrapper><CommentsList article_id={article_id}/></CollapseWrapper>
+            <CollapseWrapper><CommentsList comments={comments} setComments={setComments} article_id={article_id}/></CollapseWrapper>
             <Link to={`/topics/${topic}/articles`} className="single_article_return_to_topics">Return to {topic} articles</Link>
         </>
 

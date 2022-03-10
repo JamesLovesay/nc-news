@@ -4,15 +4,15 @@
 }
 
 .App-header h1 {
-  font-size: 1cm;
+  font-size: 1.4cm;
   text-align: center;
-  font-family: fantasy;
+  font-family: serif;
 }
 
 .App-header {
   display: flex;
   padding: 10px 10px 0px 10px;
-  align-items: center;
+  text-align: center;
   justify-content: space-between;
   background-color: #EC5800;
   color: rgb(19, 18, 18);
@@ -201,6 +201,33 @@
       margin: 0px;
 }
 
+.new_comment_submit textarea {
+  height: 150px;
+  width: 400px;
+  display: inline-block;
+}
+
+.new_comment_submit label {
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+}
+
+.new_comment_submit button {
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 20px;
+}
+
+.new_comment_body_valid {
+  border-width: 2px;
+  border-color: green;
+}
+
+.new_comment_body_invalid {
+  border-width: 2px;
+  border-color: red;
+}
 
 /* .App-logo {
   height: 40vmin;
