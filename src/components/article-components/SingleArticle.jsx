@@ -3,6 +3,8 @@ import * as api from "../../utils/api.js";
 import Error from '../error-components/Error.jsx'
 import {Link} from "react-router-dom";
 import { useParams } from "react-router-dom";
+import CommentsList from "../comments-components/CommentsList.jsx";
+import CollapseWrapper from "../comments-components/CollapseWrapper.jsx";
 import { useContext } from "react";
 import { UserContext } from "../user-components/UserContext.jsx";
 
@@ -10,7 +12,9 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const { topic, article_id } = useParams();
-    const [article, setArticle] = useState({})
+
+    const [article, setArticle] = useState({});
+    const [isCommentsVisible, setCommentsVisible] = useState(false);
     const [votes, setVotes] = useState(0)
     const {loggedInUser} = useContext(UserContext)
 
@@ -57,6 +61,7 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
             <p className="single_article_paragraph">Comments {article.comment_count}</p>
             <button className="comment_view_button">Click to view comments</button>
             </section>
+            <CollapseWrapper><CommentsList article_id={article_id}/></CollapseWrapper>
             <Link to={`/topics/${topic}/articles`} className="single_article_return_to_topics">Return to {topic} articles</Link>
         </>
 
