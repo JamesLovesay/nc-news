@@ -6,6 +6,7 @@ import Error from "../error-components/Error.jsx";
 
 export default function DeleteComment({ author, comments, setComments, comment_id, commentToDelete, setCommentToDelete }) {
     const [error, setError] = useState(null);
+    const [isDeleting, setIsDeleting] = useState(false);
     const {loggedInUser} = useContext(UserContext);
 
     const handleClick = () => {
@@ -17,10 +18,16 @@ export default function DeleteComment({ author, comments, setComments, comment_i
             return reducedComments
         })
         setError(null);
-        api.deleteComment(comment_id).catch((err) => {
+        setIsDeleting(true)
+        api.deleteComment(comment_id)
+        .then((response) => {
+            setIsDeleting(false);
+        })
+        .catch((err) => {
             setComments([...comments, commentToDelete]);
             setError('Something has gone wrong when deleting your comment. Please try again.');
             setCommentToDelete({});
+            setIsDeleting(false);
         });
     }
 
@@ -29,6 +36,6 @@ export default function DeleteComment({ author, comments, setComments, comment_i
     }
 
     return (
-        <button type="button" onClick={handleClick} disabled={loggedInUser === "" || author !== loggedInUser} className={loggedInUser !== "" && author === loggedInUser ? "delete_comment_enabled" : "delete_comment_disabled"}>Delete Comment</button>
+        <button type="button" onClick={handleClick} disabled={isDeleting === "true" || loggedInUser === "" || author !== loggedInUser} className={loggedInUser !== "" && author === loggedInUser ? "delete_comment_enabled" : "delete_comment_disabled"}>Delete Comment</button>
     )
 }
