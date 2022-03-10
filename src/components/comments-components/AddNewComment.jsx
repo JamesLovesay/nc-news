@@ -23,8 +23,8 @@ export default function AddNewComment({ isPosting, setIsPosting, setComments }) 
             username: loggedInUser,
             body: comment
         }
-        setIsPosting(true);
-        api.addComment(article_id, newComment).then((comment) => {
+            setIsPosting(true);
+            api.addComment(article_id, newComment).then((comment) => {
                 setComments((currComments) => {
                     return [comment, ...currComments]
                 })

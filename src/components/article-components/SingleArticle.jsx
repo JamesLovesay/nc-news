@@ -39,7 +39,7 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
         .catch((err) => {
             setError(err.message);
         })
-    }, [article_id, isPosting])
+    }, [article_id])
 
     if (error) {
         return <Error error={error} />
