@@ -22,8 +22,21 @@ export const getArticle = (article_id) => {
     })
 }
 
+
 export const getComments = (article_id) => {
     return newsApi.get(`/articles/${article_id}/comments`).then((res) => {
         return res.data.comments;
+    })
+}
+
+export const getUsers = () => {
+    return newsApi.get("/users").then((res) => {
+        return res.data.users;
+    })
+}
+
+export const changeVotes = (article_id, incVotes) => {
+    return newsApi.patch(`/articles/${article_id}`, {inc_votes: incVotes}).then((res) => {
+        return res.data.article;
     })
 }

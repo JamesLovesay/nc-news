@@ -17,7 +17,7 @@ export default function TopicList({ articles, setArticles }) {
         .catch((err) => {
             setError(err.message);
         })
-    }, [])
+    }, [topic])
 
     if (error) {
         return <Error error={error}/>
