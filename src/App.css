@@ -3,10 +3,11 @@
    background-color: gainsboro;
 }
 
-.App-header h1 {
-  font-size: 1.4cm;
-  text-align: center;
-  font-family: serif;
+.header_title {
+  font-size: 1.5cm;
+  font-family: 'Source Code Pro', monospace;
+  margin-bottom: 3px;
+  margin-top: 10px;
 }
 
 .App-header {
@@ -21,6 +22,8 @@
 .navbar {
   background-color: #EC5800;
   border-top: solid;
+  padding-bottom: 10px;
+  border-bottom: solid;
 }
 
 .login-link {
@@ -48,7 +51,10 @@
   margin: 10px;
   border-style: solid; 
   border-radius: 10%;
-  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .header_title {
@@ -196,6 +202,11 @@
     background-color: #EC5800;
 }
 
+.user_login_status_bar button {
+    color: #EC5800;
+    background-color: black;
+}
+
 #user_login_display {
       background-color: #EC5800;
       margin: 0px;
@@ -241,6 +252,68 @@
   border-radius: 20%;
   background-color: rgba(131, 125, 125, 0.795);
   color: white;
+}
+
+.filter_sort_container {
+  padding-top: 5px;
+  border-style: groove;
+  border-top: 0px;
+  border-left: 0px; 
+  border-right: 0px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#filter_sort_submit {
+  margin-top: 10px;
+  background-color: #e77737;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 5px 10px 5px 10px;
+  font-style: normal;
+  font-size: large;
+  margin-right: 10px;
+}
+
+.filter_sort_container label {
+  padding-right: 10px
+}
+
+.filter_label {
+  margin-bottom: 5px;
+  margin-top: 25px;
+  font-style: oblique;
+  }
+
+  .error_message {
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  #filter_sort_reset {
+  margin-top: 10px;
+  background-color: #EC5800;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 5px 10px 5px 10px;
+  font-style: normal;
+  font-size: large;
+  margin-left: 10px;
+}
+
+.error_container {
+  padding-bottom: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.filter_view_button {
+  margin-top: 20px;
+  border-radius: 30%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: normal;
+  font-size: large;
+  background-color: #e77737;
 }
 
 /* .App-logo {

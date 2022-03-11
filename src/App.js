@@ -16,6 +16,14 @@ function App() {
     const [topics, setTopics] = useState([]);
     const [loggedInUser, setLoggedInUser] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [sortCriteria, setSortCriteria] = useState({
+        topic: "", 
+        limit: 10, 
+        p: 1, 
+        sort_by: "created_at", 
+        order: "desc"
+    })
+    const [isFiltered, setFiltered] = useState(false)
 
   return (
     <UserContext.Provider value={{loggedInUser, setLoggedInUser}}>
@@ -25,9 +33,9 @@ function App() {
           <UserStatus setLoggedInUser={setLoggedInUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} loggedInUser={loggedInUser} />
           <Nav topics={topics} setTopics={setTopics}/>
           <Routes>
-            <Route path="/" element={<ArticleList articles={articles} setArticles={setArticles}/>}/>
+            <Route path="/" element={<ArticleList sortCriteria={sortCriteria} setSortCriteria={setSortCriteria} isFiltered={isFiltered} setFiltered={setFiltered} topics={topics} setTopics={setTopics} articles={articles} setArticles={setArticles}/>}/>
 
-            <Route path="/topics/:topic/articles" element={<TopicList articles={articles} setArticles={setArticles} topics={topics}/>}/>
+            <Route path="/topics/:topic/articles" element={<TopicList articles={articles} setArticles={setArticles} topics={topics} sortCriteria={sortCriteria} setSortCriteria={setSortCriteria} isFiltered={isFiltered} setFiltered={setFiltered}/>}/>
 
             <Route path="/topics/:topic/articles/:article_id" element={<SingleArticle isLoggedIn={isLoggedIn}articles={articles} setArticles={setArticles}/>} />
 
