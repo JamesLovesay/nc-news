@@ -25,7 +25,7 @@ export default function SortForm({sortCriteria, setSortCriteria, setFiltered, to
                 </div>
             <div key="filter_sort_topic" className="filter_sort_topic" onChange={handleChange}>
                 <p className="filter_label">Choose your topic</p>
-                <input aria-label="choose which page of results to view" type="radio"  name="topic" value="" key="all_topics" checked></input>
+                <input aria-label="choose which page of results to view" type="radio"  name="topic" value="" key="all_topics" ></input>
                 <label htmlFor="">All topics</label>
 
                 {topics.map((topic) => {
@@ -44,7 +44,7 @@ export default function SortForm({sortCriteria, setSortCriteria, setFiltered, to
                 <label htmlFor="title">Title</label>
                 <input aria-label="sort result by column" type="radio" id="topic" name="sort_by" value="topic" key="topic"></input>
                 <label htmlFor="topic">Topic</label>
-                <input aria-label="sort result by column" type="radio" id="created_at" name="sort_by" value="created_at" key="created_at" checked></input>
+                <input aria-label="sort result by column" type="radio" id="created_at" name="sort_by" value="created_at" key="created_at" ></input>
                 <label htmlFor="created_at">Date</label>
                 <br />
                 <input aria-label="sort result by column" type="radio" id="author" name="sort_by" value="author" key="author"></input>
@@ -58,7 +58,7 @@ export default function SortForm({sortCriteria, setSortCriteria, setFiltered, to
                 <p className="filter_label">Choose order</p>
                 <input aria-label="choose order of results" type="radio" name="order" value="asc" key="asc"></input>
                 <label htmlFor="ascending">Asc</label>
-                <input aria-label="choose which page of results to view" type="radio" name="order" value="desc" key="desc" checked></input>
+                <input aria-label="choose which page of results to view" type="radio" name="order" value="desc" key="desc" ></input>
                 <label htmlFor="descending">Desc</label>
             </div>
             <input aria-label="submit filter" type="submit" id="filter_sort_submit" value="Filter articles" key="submit_button"/>

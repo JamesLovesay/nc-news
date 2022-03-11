@@ -30,7 +30,7 @@ export default function TopicSortForm({sortCriteria, setSortCriteria, setFiltere
                 <label htmlFor="title">Title</label>
                 <input aria-label="sort result by column" type="radio" id="topic" name="sort_by" value="topic"></input>
                 <label htmlFor="topic">Topic</label>
-                <input aria-label="sort result by column" type="radio" id="created_at" name="sort_by" value="created_at" checked></input>
+                <input aria-label="sort result by column" type="radio" id="created_at" name="sort_by" value="created_at" ></input>
                 <label htmlFor="created_at">Date</label>
                 <br />
                 <input aria-label="sort result by column" type="radio" id="author" name="sort_by" value="author"></input>
@@ -44,7 +44,7 @@ export default function TopicSortForm({sortCriteria, setSortCriteria, setFiltere
                 <p className="filter_label">Choose order</p>
                 <input aria-label="choose order of results" type="radio" name="order" value="asc"></input>
                 <label htmlFor="ascending">Asc</label>
-                <input aria-label="choose which page of results to view" type="radio" name="order" value="desc" checked></input>
+                <input aria-label="choose which page of results to view" type="radio" name="order" value="desc" ></input>
                 <label htmlFor="descending">Desc</label>
             </div>
             <input aria-label="submit filter" type="submit" id="filter_sort_submit" value="Filter articles"/>
