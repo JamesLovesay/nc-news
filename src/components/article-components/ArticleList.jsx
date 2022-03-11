@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import * as api from "../../utils/api.js";
 import ArticleCard from "./ArticleCard.jsx";
 import Error from '../error-components/Error.jsx'
+import SortForm from "./SortForm.jsx";
 
 export default function ArticleList({ articles, setArticles }) {
     const [isLoading, setIsLoading] = useState(true);
@@ -16,14 +17,14 @@ export default function ArticleList({ articles, setArticles }) {
 
     useEffect(() => {
         setIsLoading(true);
-        api.getArticles(form.topic, form.limit, form.p, form.sort_by, form.order).then((articles) => {
+        api.getArticles(sortCriteria.topic, sortCriteria.limit, sortCriteria.p, sortCriteria.sort_by, sortCriteria.order).then((articles) => {
             setArticles(articles)
             setIsLoading(false)
         })
         .catch((err) => {
             setError(err.message);
         })
-    }, [])
+    }, [sortCriteria])
 
     if (error) {
         return <Error error={error} />
