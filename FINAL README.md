@@ -1,6 +1,7 @@
 NewsBytes README
 
-This is a link to the deployed version of the project <to be inserted>.
+This is a link to the deployed version of this app https://newsbytes.netlify.app/.
+This is a link to the back end repo https://github.com/JamesLovesay/nc-news-be-project and the following is the hosted back end for the app <https://nc-news-back-end-project.herokuapp.com/>
 
 ### Functions in the app
 
