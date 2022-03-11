@@ -16,7 +16,7 @@ export default function ArticleList({ articles, setArticles, topics, setTopics, 
         setIsLoading(true);
         api.getArticles(sortCriteria.topic, sortCriteria.limit, sortCriteria.p, sortCriteria.sort_by, sortCriteria.order).then((articles) => {
             if(articles.length === 0) {
-                setError("Your search returned no articles. Please refresh the page and try again.")
+                setError("Your search returned no articles. Please refresh the page if you are not redirected in three seconds.")
                 setTimeout(() => {
                     setError(null)
                     setSortCriteria({
@@ -28,7 +28,7 @@ export default function ArticleList({ articles, setArticles, topics, setTopics, 
                 })
                 setRefresh((prevStatus) => prevStatus + 1)
 
-                }, 2000)
+                }, 3000)
             }
             setArticles(articles)
             setIsLoading(false)
@@ -50,7 +50,7 @@ export default function ArticleList({ articles, setArticles, topics, setTopics, 
             <SortForm setTopics={setTopics} topics={topics} sortCriteria={sortCriteria} setSortCriteria={setSortCriteria} isFiltered={isFiltered} setFiltered={setFiltered}/>
             </ShowHideFilter> : <SortForm topics={topics} setTopics={setTopics} sortCriteria={sortCriteria} setSortCriteria={setSortCriteria} isFiltered={isFiltered} setFiltered={setFiltered}/>}
         <section className="homepage_article_list">
-            {articles.map(({ article_id, title, topic, author, body, votes}) => {
+            {articles.map(({ article_id, title, topic, author, body, votes, created_at}) => {
                 return (
 
                     <ArticleCard 
@@ -60,7 +60,8 @@ export default function ArticleList({ articles, setArticles, topics, setTopics, 
                     topic={topic}
                     author={author}
                     body={body}
-                    votes={votes}/>
+                    votes={votes}
+                    created_at={created_at}/>
                 )
             })}
         </section>

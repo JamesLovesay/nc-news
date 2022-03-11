@@ -188,7 +188,7 @@
 
 .articlecard_votes {
   padding-bottom: 2px;
-  margin-bottom: 2px;
+  margin-bottom: 7px;
 }
 
 .user_login_status_bar {
@@ -315,6 +315,10 @@
   font-style: normal;
   font-size: large;
   background-color: #e77737;
+}
+
+.articlecard_date_created {
+  margin-bottom: 3px;
 }
 
 /* .App-logo {
