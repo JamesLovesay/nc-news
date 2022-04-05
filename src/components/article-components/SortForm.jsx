@@ -53,6 +53,8 @@ export default function SortForm({sortCriteria, setSortCriteria, setFiltered, to
                 <label htmlFor="body">Body</label>
                 <input aria-label="sort result by column" type="radio" id="votes" name="sort_by" value="votes" key="votes"></input>
                 <label htmlFor="votes">Votes</label>
+                <input aria-label="sort result by column" type="radio" id="comment_count" name="sort_by" value="comment_count" key="comment_count"></input>
+                <label htmlFor="votes">Comments</label>
             </div>
             <div key="filter_sort_order" className="filter_sort_order" onChange={handleChange}>
                 <p className="filter_label">Choose order</p>
