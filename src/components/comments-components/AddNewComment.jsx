@@ -47,8 +47,6 @@ export default function AddNewComment({ isPosting, setIsPosting, setComments }) 
 
     return (
         <form className="new_comment_submit">
-            <label htmlFor="body">Post a new comment here</label>
-            <br />
             <textarea className={comment && loggedInUser ? "new_comment_body_valid": "new_comment_body_invalid"}  
                     type="text"
                     rows="10"
@@ -57,6 +55,7 @@ export default function AddNewComment({ isPosting, setIsPosting, setComments }) 
                     value={comment}
                     name="new_comment_body"
                     onChange={handleChange}
+                    placeholder="post a new comment here..."
                     required />
             <br />
             <button onClick={handleClick} id="button_post_comment" disabled={isPosting === "true"}>Submit comment</button>

@@ -65,11 +65,12 @@
 .topic_article_list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   max-width: 1200px;
   margin-bottom: 0;
   padding-top: 50px;
+  padding-bottom: 100px;
 }
 
 .header_button_label {
@@ -108,14 +109,14 @@
 }
 
 .single_article_display h3 {
-  padding-left: 50px;
+  padding-left: 10%;
   margin-top: 50px;
   margin-bottom: 0;
   text-align: left;
 }
 
 .single_article_display h4 {
-  padding-left: 50px;
+  padding-left: 10%;
   margin-top: 0;
   margin-bottom: 5px;
   text-align: left;
@@ -123,7 +124,7 @@
 }
 
 .single_article_display h5 {
-  padding-left: 50px;
+  padding-left: 10%;
   margin-top: 0;
   text-align: left;
   color: black;
@@ -131,8 +132,8 @@
 
 .single_article_body {
   text-align: justify;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .article_comments_container {
@@ -181,9 +182,11 @@
 }
 
 .article_vote_button {
-  border-radius: 40%;
+  border-radius: 5%;
   border-width: 3px;
   padding: 5px 10px 0px 10px;
+  font-size: 30;
+  font-weight: bold;
 }
 
 .articlecard_votes {
@@ -234,23 +237,25 @@
 .new_comment_body_valid {
   border-width: 2px;
   border-color: green;
+  max-width: 10%;
 }
 
 .new_comment_body_invalid {
   border-width: 2px;
   border-color: red;
+  max-width: 80%;
 }
 
 .delete_comment_enabled {
   margin-bottom: 10px;
-  border-radius: 20%;
+  border-radius: 5%;
   background-color: rgba(252, 29, 29, 0.795);
   color: white;
 }
 
 .delete_comment_disabled {
   margin-bottom: 10px;
-  border-radius: 20%;
+  border-radius: 5%;
   background-color: rgba(131, 125, 125, 0.795);
   color: white;
 }
@@ -274,6 +279,7 @@
   font-style: normal;
   font-size: large;
   margin-right: 10px;
+  border-radius: 5%;
 }
 
 .filter_sort_container label {
@@ -321,37 +327,13 @@
   margin-bottom: 3px;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.articlecard_author {
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.articlecard_topic {
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

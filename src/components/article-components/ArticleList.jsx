@@ -39,7 +39,7 @@ export default function ArticleList({ articles, setArticles, topics, setTopics, 
         })
     }, [isFiltered, refresh])
 
-    if (error) {
+    if (error) { 
         return <Error error={error} />
     }
     if(isLoading) return <p> Loading....</p>

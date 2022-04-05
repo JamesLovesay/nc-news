@@ -50,7 +50,7 @@ export default function TopicList({ articles, setArticles, topics, sortCriteria,
         <>
         {isMobileView ? <ShowHideFilter><TopicSortForm topics={topics} sortCriteria={sortCriteria} setSortCriteria={setSortCriteria} isFiltered={isFiltered} setFiltered={setFiltered}/></ShowHideFilter> : <TopicSortForm topics={topics} sortCriteria={sortCriteria} setSortCriteria={setSortCriteria} isFiltered={isFiltered} setFiltered={setFiltered}/> }
         <section className="topic_article_list">
-            {articles.map(({ article_id, title, topic, author, body, votes}) => {
+                {articles.map(({ article_id, title, topic, author, body, votes, created_at}) => {
                 return (
                     <ArticleCard 
                     key={article_id}
@@ -59,7 +59,8 @@ export default function TopicList({ articles, setArticles, topics, sortCriteria,
                     topic={topic}
                     author={author}
                     body={body}
-                    votes={votes}/>
+                    votes={votes}
+                    created_at={created_at}/>
                 )
             })}
         </section>
