@@ -39,6 +39,8 @@ export default function TopicSortForm({sortCriteria, setSortCriteria, setFiltere
                 <label htmlFor="body">Body</label>
                 <input aria-label="sort result by column" type="radio" id="votes" name="sort_by" value="votes"></input>
                 <label htmlFor="votes">Votes</label>
+                <input aria-label="sort result by column" type="radio" id="comment_count" name="sort_by" value="comment_count"></input>
+                <label htmlFor="comment_count">Comments</label>
             </div>
             <div className="filter_sort_order" onChange={handleChange}>
                 <p className="filter_label">Choose order</p>
