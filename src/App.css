@@ -337,3 +337,24 @@
   padding-right: 10%;
 }
 
+.comment_vote_button {
+  height: 30px;
+  border-radius: 5%;
+  border-width: 3px;
+  font-size: 30;
+  font-weight: bold;
+  display: inline-block;
+  margin: auto;
+}
+
+.comment_vote_section {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25% 0 25%;
+}
+
+.comment_individual_article p {
+  padding-left: 10%;
+  padding-right: 10%;
+}

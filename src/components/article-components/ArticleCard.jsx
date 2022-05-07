@@ -10,7 +10,7 @@ export default function ArticleCard({ article_id, title, topic, author, body, vo
             </Link>
             <h4 className="articlecard_author">{author}</h4>
             <h5 className="articlecard_topic">{topic}</h5>
-            <p className="articlecard_votes">Votes - {votes}</p>
+            <p className="articlecard_votes">Votes {votes}</p>
         </article>
     )
 }

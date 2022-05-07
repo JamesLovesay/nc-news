@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { UserContext } from "../user-components/UserContext.jsx";
 import AddNewComment from "../comments-components/AddNewComment.jsx";
 
-export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
+export default function SingleArticle() {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const { topic, article_id } = useParams();
@@ -25,7 +25,7 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
             return currVotes + incVotes;
         })
         setError(null);
-        api.changeVotes(article_id, incVotes).catch((err) => {
+        api.changeVotes(article_id, incVotes).catch(() => {
         setVotes((currVotes) => currVotes - incVotes);
         setError('Your vote was not counted, please try again.');
         });
@@ -54,7 +54,7 @@ export default function SingleArticle({ articles, setArticles, isLoggedIn }) {
             <h4 className="articlecard_author">{article.author}</h4>
             <h5 className="articlecard_topic">{topic}</h5>
             <p className="single_article_body">{article.body}</p>
-            <p className="articlecard_votes">Votes - {article.votes + votes}</p>
+            <p className="articlecard_votes">Votes {article.votes + votes}</p>
             <button onClick={() => handleClick(1)} className="article_vote_button" disabled={votes === 1 || loggedInUser === article.author || loggedInUser === ""}>+</button>
             <button onClick={() => handleClick(-1)} className="article_vote_button" disabled={votes === -1 || loggedInUser === article.author || loggedInUser === ""}>-</button>
             <p className="single_article_paragraph">Comments {article.comment_count}</p>
