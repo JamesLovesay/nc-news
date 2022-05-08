@@ -1,11 +1,28 @@
+import * as api from "../../utils/api.js";
+import { useEffect, useState } from "react"; 
+
 export default function SortForm({sortCriteria, setSortCriteria, setFiltered, topics}) {
+    const [users, setUsers] = useState([]);
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        api.getUsers().then((users) => {
+            setUsers(users)
+            setIsLoading(false)
+        })
+            .catch((err) => {
+                setError(err.message);
+            })
+    }, [])
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         setSortCriteria(values => ({...values, [name]: value }));
-        
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setFiltered(true)
@@ -62,6 +79,17 @@ export default function SortForm({sortCriteria, setSortCriteria, setFiltered, to
                 <label htmlFor="ascending">Asc</label>
                 <input aria-label="choose which page of results to view" type="radio" name="order" value="desc" key="desc" ></input>
                 <label htmlFor="descending">Desc</label>
+            </div>
+            <div key="filter_sort_author" className="filter_sort_author">
+                <label>
+                    Author <whitespace></whitespace>  
+                    <select name="author" onChange={handleChange}>
+                        <option key="" value=""></option>
+                        {users.map((user) => (
+                            <option key={user.username} value={user.username}>{user.username}</option>
+                        ))}
+                    </select>
+                </label>
             </div>
             <input aria-label="submit filter" type="submit" id="filter_sort_submit" value="Filter articles" key="submit_button"/>
         </form>

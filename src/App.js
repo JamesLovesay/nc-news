@@ -21,7 +21,8 @@ function App() {
         limit: 10, 
         p: 1, 
         sort_by: "created_at", 
-        order: "desc"
+        order: "desc",
+        author: ""
     })
     const [isFiltered, setFiltered] = useState(false)
 
