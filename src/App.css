@@ -316,7 +316,7 @@
 
 .filter_view_button {
   margin-top: 20px;
-  border-radius: 30%;
+  border-radius: 5%;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-style: normal;
   font-size: large;
@@ -363,3 +363,53 @@
   padding: 1%;
 }
 
+@media only screen and (min-width: 481px) {
+  .filter_sort_search_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .filter_sort_search_container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5px;
+  }
+  .filter_sort_search_container label {
+    padding-top: 8px;
+    padding-right: 0;
+    margin-right: 0;
+    align-items: right;
+  }
+  .filter_sort_search_container input {
+    margin-left: 25px;
+    height: 15px;
+    width: 95px;
+    padding-right: 0;
+    margin-right: 0;
+  }
+  .filter_sort_search_container select {
+    margin-left: 8px;
+    height: 20px;
+    width: 100px;
+    padding-right: 0;
+    margin-right: 0;
+  }
+}
+
+.filter_sort_item {
+  margin: 3px;
+}
+
+#filter_sort_header {
+  margin: 10px;
+}
