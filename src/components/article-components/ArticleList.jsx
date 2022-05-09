@@ -14,7 +14,7 @@ export default function ArticleList({ articles, setArticles, topics, setTopics, 
 
     useEffect(() => {
         setIsLoading(true);
-        api.getArticles(sortCriteria.topic, sortCriteria.limit, sortCriteria.p, sortCriteria.sort_by, sortCriteria.order).then((articles) => {
+        api.getArticles(sortCriteria.topic, sortCriteria.limit, sortCriteria.p, sortCriteria.sort_by, sortCriteria.order, sortCriteria.author).then((articles) => {
             if(articles.length === 0) {
                 setError("Your search returned no articles. Please refresh the page if you are not redirected in three seconds.")
                 setTimeout(() => {
